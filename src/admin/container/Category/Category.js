@@ -49,7 +49,7 @@ function Category(props) {
         { field: 'cat_img', headerName: 'Image', width: 130, 
             renderCell: (params) => {
                 return (
-                    <img src={IMAGE_URL + params.row.cat_img} width={"50px"} height={"50px"} />
+                    <img src={params.row.cat_img} width={"50px"} height={"50px"} />
                 )
             }
         },

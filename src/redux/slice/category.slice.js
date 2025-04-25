@@ -14,7 +14,7 @@ export const createCategory = createAsyncThunk(
     async (data) => {
         console.log(data);
         
-        const response = await axios.post("http://localhost:8000/api/v1/category/add-category", data, {
+        const response = await axiosInstance.post("category/add-category", data, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -43,7 +43,7 @@ export const deleteCategory = createAsyncThunk(
     'category/deleteCategory',
     async (id) => {
         try {
-            const response = await axios.delete(BASE_URL + "category/delete-category/" + id);
+            const response = await axiosInstance.delete("category/delete-category/" + id);
 
             return response.data.data._id;
         } catch (error) {
@@ -56,7 +56,7 @@ export const updateCategory = createAsyncThunk(
     "category/updateCategory",
     async (data) => {
         try {
-            const response = await axios.put(BASE_URL + 'category/update-category/' + data._id, data, {
+            const response = await axiosInstance.put('category/update-category/' + data._id, data, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
